@@ -1,5 +1,5 @@
 # Use a multi-staging build to reduce size of the image
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN npm ci --omit=dev
 COPY . .
 
 # Production image (small images)
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
